@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import Home from './components/views/Home';
-import Post from './components/views/Post';
+import Post from './components/views/Post/Post';
 
 function App() {
   return (
