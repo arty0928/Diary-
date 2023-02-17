@@ -24,7 +24,7 @@ app.post('/api/post',(req,res)=>{
     post.save((err, inputInfo)=>{
         if(err) return res.json({success: false, err});
         return res.status(200).json({
-            inputSuccess: true,
+            postSuccess: true,
         });
     });
 });
