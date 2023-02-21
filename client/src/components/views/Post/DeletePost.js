@@ -11,6 +11,8 @@ export function DeletePost(event){
         console.log(response.data.delSuccess);
         if(response.data.delSuccess){
             // navigate('/home');
+            // return <Navigate to="/home" />;
+            window.location.replace("/home")
         }
             
         else{

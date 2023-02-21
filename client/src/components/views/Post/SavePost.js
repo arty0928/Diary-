@@ -1,7 +1,4 @@
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { DeletePost } from './DeletePost';
-
 
 
 //입력값이 아니라 데이터에서 가져와서 넣어야 
