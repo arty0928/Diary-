@@ -4,7 +4,17 @@ const app = express()
 const mongoose = require("mongoose");
 const config = require('./config/key.js');
 const bodyParser = require("body-parser");
+const cookieParser = require('cookie-parser');
 const {Model} = require("./models/model.js");
+const {auth} = require('./middleware/auth');
+
+mongoose.set("strictQuery", false);
+//srv : 몽고 db 유저 정보로 db와 연결함
+mongoose
+.connect(config.mongoURI)
+    //연결에 성공하면 mongodb connected 출력, 아니면 에러 발생
+.then(() => console.log("MongoDB Connected..."))
+.catch((err) => console.log(err));
 
 
 //json -> 요청한 데이터를 해석해 json으로 변환
@@ -13,16 +23,48 @@ const {Model} = require("./models/model.js");
 app.use(bodyParser.urlencoded({extended: true})); 
 app.use(bodyParser.json());
 
+app.use(cookieParser());
+
+
 app.get('/', (req, res) => {
-res.send('home')
+    res.send('root');
 });
 
-  
+app.get('/api/auth', auth, (req, res) => {
+    console.log('post save auth in server');
+    Model.find(function(err, posts){
+                //console.log('read all');
+                if(err){
+                    console.log(err);
+                    return res.send({Auth: false});
+                }else{
+                    //console.log(posts);
+                    return res.status(200).json({
+                        postSuccess: true,
+                        posts: posts
+                    });
+                }
+            })
+});
+
+
 app.post('/api/post',(req,res)=>{
     const post = new Model(req.body);
 
     post.save((err, inputInfo)=>{
         if(err) return res.json({success: false, err});
+            // Model.find(function(err, posts){
+            //     console.log('read all');
+            //     if(err){
+            //         console.log(err);
+            //     }else{
+            //         console.log(posts);
+            //         return res.status(200).json({
+            //             postSuccess: true,
+            //             posts: posts
+            //         });
+            //     }
+            // })
         return res.status(200).json({
             postSuccess: true,
         });
@@ -34,11 +76,3 @@ console.log(`Example app listening on port ${port}`)
 });
 
 
-mongoose.set("strictQuery", false);
-
-//srv : 몽고 db 유저 정보로 db와 연결함
-mongoose
-.connect(config.mongoURI)
-    //연결에 성공하면 mongodb connected 출력, 아니면 에러 발생
-.then(() => console.log("MongoDB Connected..."))
-.catch((err) => console.log(err));
