@@ -47,7 +47,6 @@ app.get('/api/auth', auth, (req, res) => {
             })
 });
 
-
 app.post('/api/post',(req,res)=>{
     const post = new Model(req.body);
 
@@ -70,6 +69,28 @@ app.post('/api/post',(req,res)=>{
         });
     });
 });
+
+app.post('/api/delete', (req, res) => {
+
+    let id = req.body.toString();
+    
+    Model.findOneAndDelete(id, function (err, docs) {
+        if (err){
+            console.log('delete');
+            return res.json({
+                delSuccess: false,
+                err
+            })
+        }
+        else{
+            return res.status(200).json({
+                delSuccess: true
+            })
+        }
+    });
+});
+
+
 const port = 5000;
 app.listen(port, () => {
 console.log(`Example app listening on port ${port}`)

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {postContent} from '../../../_actions/action';
-import { savePost } from './SavePost';
+import { SavePost } from './SavePost';
 
 function Post() {
 
