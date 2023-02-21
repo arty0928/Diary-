@@ -1,4 +1,5 @@
 import { DeletePost } from './DeletePost';
+import { EditPost } from './EditPost';
 
 
 //입력값이 아니라 데이터에서 가져와서 넣어야 
@@ -28,6 +29,8 @@ export function SavePost(dataToSubmit){
         deleteBtn.addEventListener('click',DeletePost);
 
         editBtn.innerText = '수정';
+        editBtn.addEventListener('click',EditPost);
+
         li.id = "post";
         li.className = value._id;
         li.appendChild(titleText);
