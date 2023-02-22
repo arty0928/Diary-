@@ -52,18 +52,6 @@ app.post('/api/post',(req,res)=>{
 
     post.save((err, inputInfo)=>{
         if(err) return res.json({success: false, err});
-            // Model.find(function(err, posts){
-            //     console.log('read all');
-            //     if(err){
-            //         console.log(err);
-            //     }else{
-            //         console.log(posts);
-            //         return res.status(200).json({
-            //             postSuccess: true,
-            //             posts: posts
-            //         });
-            //     }
-            // })
         return res.status(200).json({
             postSuccess: true,
         });
@@ -71,7 +59,6 @@ app.post('/api/post',(req,res)=>{
 });
 
 app.post('/api/delete', (req, res) => {
-
     let id = req.body.toString();
     
     Model.findOneAndDelete(id, function (err, docs) {
@@ -92,9 +79,19 @@ app.post('/api/delete', (req, res) => {
 
 app.post('/api/edit', (req, res) => {
 
-    let id = req.body.toString();
-    
-    
+    // let id = req.body.toString();
+    console.log(req.body.params);
+    console.log(typeof(req.body.params));
+    Model.findOneAndUpdate(req.body.params.objectId,
+        {content: ""})
+        ,(err,posts) => {
+            if(err) return res.json({editSuccess: false, err});
+            console.log('edit server');
+            return res.status(200).send({
+                editSuccess: true,
+                message: "Edit 완료"
+            });
+        };
 });
 
 

@@ -18,17 +18,19 @@ export function SavePost(dataToSubmit){
         const deleteBtn = document.createElement('button');
         const editBtn = document.createElement('button');
         const titleText = document.createElement('span');
+        titleText.id = "title";
         const contentText = document.createElement('p');
+        contentText.id = "content";
         const number = document.createElement('p');
 
         titleText.innerText= value.title;
         contentText.innerText = value.content;
         number.id='number';
 
-        deleteBtn.innerText = '삭제';
+        deleteBtn.innerText = 'X';
         deleteBtn.addEventListener('click',DeletePost);
 
-        editBtn.innerText = '수정';
+        editBtn.innerText = '✎';
         editBtn.addEventListener('click',EditPost);
 
         li.id = "post";
