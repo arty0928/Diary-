@@ -14,14 +14,6 @@ export function EditPost(event){
     const target  = event.target.parentElement;
     console.log(target);
 
-
-    // let body = {
-    //     "objectId" : target.className,
-    //     "text": text
-    // }
-    
-    // console.log(body);
-
     axios.post('/api/edit',{
         params:{
             "objectId" : target.className,
