@@ -78,20 +78,39 @@ app.post('/api/delete', (req, res) => {
 });
 
 app.post('/api/edit', (req, res) => {
-
-    // let id = req.body.toString();
+    console.log('edit req');
+    console.log(req.body.params.objectId);
     console.log(req.body.params);
-    console.log(typeof(req.body.params));
+    console.log(req.body.params.text);
+
+
     Model.findOneAndUpdate(req.body.params.objectId,
-        {content: ""})
+        {content: req.body.params.text}
         ,(err,posts) => {
-            if(err) return res.json({editSuccess: false, err});
+            console.log("edit findoneAndUpdate");
+            if(err) {
+                return res.json({editSuccess: false, err});
+            }
             console.log('edit server');
             return res.status(200).send({
                 editSuccess: true,
                 message: "Edit 완료"
             });
-        };
+        });
+    // Model.findOneAndDelete(req.body.params.objectId, function (err, docs) {
+    //     if (err){
+    //         console.log('delete');
+    //         return res.json({
+    //             delSuccess: false,
+    //             err
+    //         })
+    //     }
+    //     else{
+    //         return res.status(200).json({
+    //             delSuccess: true
+    //         })
+    //     }
+    // });
 });
 
 

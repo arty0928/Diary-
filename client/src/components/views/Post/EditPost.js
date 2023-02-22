@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export function EditPost(event){
     // const navigate = useNavigate();
+
     let preText =event.target.parentElement.querySelector('#content').innerText;
     let text = prompt("content", preText);
 
@@ -9,21 +10,27 @@ export function EditPost(event){
         return;
     }
 
+    console.log('target');
     const target  = event.target.parentElement;
+    console.log(target);
 
-    // console.log(target.className); //63f58df7c24c7eeffb71f581 (DB ObjectId)
+
+    // let body = {
+    //     "objectId" : target.className,
+    //     "text": text
+    // }
+    
+    // console.log(body);
+
     axios.post('/api/edit',{
-        params: {
-            objectId : target.className,
-            text: text
+        params:{
+            "objectId" : target.className,
+            "text": text
         }
     })
     .then(response => {
         console.log(response);
-        // console.log(response.data.delSuccess);
-        if(response.data.delSuccess){
-            // navigate('/home');
-            // return <Navigate to="/home" />;
+        if(response.data.editSuccess){
             window.location.replace("/home")
         }
         else{
