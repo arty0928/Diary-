@@ -27,17 +27,18 @@ function Home() {
             </div>
         </header>
 
-        <table id="posthere" className='w3-table'>
-          <tr>
-            <th>id</th>
-            <th>title</th>
-            <th>content</th>
-            <th>eidt</th>
-            <th>delete</th>
-          </tr>
-          
-          
-        </table>
+    <div className ='w3-container'>
+      <table id="posthere" className='w3-table'>
+        <tr>
+          <th>id</th>
+          <th>title</th>
+          <th>content</th>
+          <th>eidt</th>
+          <th>delete</th>
+        </tr>
+      </table>
+    </div>
+        
       
       </div>
     </div>

@@ -9,7 +9,6 @@ import promiseMiddleware from 'redux-promise';
 import ReduxThunk from 'redux-thunk';
 import Reducer from './_reducers';
 import './index.css';
-import './app.css';
 
 //원래는 createStore만해서 store 생성해도 되는데, store는 객체만 받아야하므로 promise와 function도 받기 위해서 
 //middleware를 합친 store만들기
