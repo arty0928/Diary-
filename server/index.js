@@ -59,7 +59,7 @@ app.post('/api/post',(req,res)=>{
 });
 
 app.post('/api/delete', (req, res) => {
-    let id = req.body.toString();
+    let id = req.body;
     
     Model.findOneAndDelete(id, function (err, docs) {
         if (err){
@@ -78,11 +78,10 @@ app.post('/api/delete', (req, res) => {
 });
 
 app.post('/api/edit', (req, res) => {
-    console.log('edit req');
-    console.log(req.body.params.objectId);
-    console.log(req.body.params);
-    console.log(req.body.params.text);
-
+    // console.log('edit req');
+    // console.log(req.body.params.objectId);
+    // console.log(req.body.params);
+    // console.log(req.body.params.text);
 
     Model.findOneAndUpdate(req.body.params.objectId,
         {content: req.body.params.text}
@@ -97,20 +96,6 @@ app.post('/api/edit', (req, res) => {
                 message: "Edit 완료"
             });
         });
-    // Model.findOneAndDelete(req.body.params.objectId, function (err, docs) {
-    //     if (err){
-    //         console.log('delete');
-    //         return res.json({
-    //             delSuccess: false,
-    //             err
-    //         })
-    //     }
-    //     else{
-    //         return res.status(200).json({
-    //             delSuccess: true
-    //         })
-    //     }
-    // });
 });
 
 

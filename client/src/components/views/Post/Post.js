@@ -70,18 +70,6 @@ return (
                             <textarea id="about" value={content}  onChange={onContentHandler} name="about" rows="3" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Content"></textarea>
                         </div>
                         </div>
-
-                            {/* <form onSubmit={onSubmitHandler}> */}
-                                {/* <label>title</label> */}
-                                    {/* <input type="text" value={title} onChange={onTtileHandler}/> */}
-                                {/* <button type="submit" >
-                                    등록
-                                </button> */}
-                                {/* <br /> */}
-                                {/* <label>content</label> */}
-                                    {/* <textarea type="text" clasa="pl-10 border-gray-300 bg-gray-50" value={content}  onChange={onContentHandler} /> */}
-                            {/* </form> */}
-
                         </div>
                     </div>
                 </div>
@@ -99,18 +87,6 @@ return (
     <div className="border-t border-gray-200"></div>
   </div>
 </div>
-
-
-        {/* <form onSubmit={onSubmitHandler}>
-            <label>title</label>
-                <input type="text" value={title} onChange={onTtileHandler}/>
-            <button type="submit" >
-                등록
-            </button>
-            <br />
-            <label>content</label>
-                <input type="text" value={content}  onChange={onContentHandler} />
-        </form> */}
     </div>
 )
 }

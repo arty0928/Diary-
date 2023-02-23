@@ -38,14 +38,6 @@ function App() {
   
 </div>
         <div>
-          {/* <div id = "header"> */}
-            {/* <h1><Link to="/">Root</Link></h1> */}
-            {/* <h1><Link to="/home">home</Link></h1> */}
-            {/* <h1><Link to="/post">post</Link></h1> */}
-          {/* </div> */}
-          
-        <hr />
-
             <Routes>
               <Route exact path="/" element = {<Root/>} />
               <Route exact path="/home" element = {<NewHome />} />

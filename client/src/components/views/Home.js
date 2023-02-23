@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, {useEffect}from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { SavePost } from './Post/SavePost';
 import { auth } from '../../_actions/action';
@@ -14,8 +14,6 @@ function Home() {
       SavePost(response.payload.posts);
     }
   })
-
-
 
   return (
     <div>
@@ -38,7 +36,6 @@ function Home() {
         </tr>
       </table>
     </div>
-        
       
       </div>
     </div>
