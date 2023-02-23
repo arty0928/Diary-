@@ -3,7 +3,8 @@ import axios from 'axios';
 export function EditPost(event){
     // const navigate = useNavigate();
 
-    let preText =event.target.parentElement.querySelector('#content').innerText;
+    console.log(event.target.parentElement.parentElement);
+    let preText =event.target.parentElement.parentElement.querySelector('#content').innerText;
     let text = prompt("content", preText);
 
     if(!text){

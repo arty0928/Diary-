@@ -80,19 +80,30 @@ export function SavePost(dataToSubmit){
         number.innerText = i++;
         number.id='number';
 
-        deleteBtn.innerText = 'X';
+        deleteBtn.innerText = '삭제';
+        deleteBtn.id = 'deleteBtn';
         deleteBtn.addEventListener('click',DeletePost);
 
-        editBtn.innerText = '✎';
+        editBtn.innerText = '수정';
+        editBtn.id = 'editBtn';
         editBtn.addEventListener('click',EditPost);
+
+        const editBtnTd = document.createElement('td');
+        editBtn.className="btn-link";
+        const deleteBtnTd = document.createElement('td');
 
         td.id = "post";
         td.className = value._id;
         td.appendChild(number);
         td.appendChild(titleText);
         td.appendChild(contentText);
-        td.appendChild(editBtn);
-        td.appendChild(deleteBtn);
+
+
+        editBtnTd.appendChild(editBtn);
+        td.appendChild(editBtnTd);
+
+        deleteBtnTd.appendChild(deleteBtn);
+        td.appendChild(deleteBtnTd);
         posthere.appendChild(td);
         
         // return(
