@@ -18,17 +18,17 @@ function App() {
 
   return (
     <Router>
-      <div class="min-h-full">
-          <nav class="bg-gray-800">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div class="flex h-16 items-center justify-between">
-                <div class="flex items-center">
-                  <div class="flex-shrink-0">
+      <div className="min-h-full">
+          <nav className="bg-gray-800">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="flex h-16 items-center justify-between">
+                <div className="flex items-center">
+                  <div className="flex-shrink-0">
                   </div>
-                  <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                      <Link to="/home" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</Link>
-                      <Link to="/post" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Post</Link>
+                  <div className="hidden md:block">
+                    <div className="ml-10 flex items-baseline space-x-4">
+                      <Link to="/home" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</Link>
+                      <Link to="/post" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Post</Link>
                       </div>
                   </div>
                 </div>      
